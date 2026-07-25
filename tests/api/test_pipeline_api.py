@@ -14,7 +14,7 @@ EONET_EVENTS_URL = "https://eonet.gsfc.nasa.gov/api/v3/events"
 EVENT_PAYLOAD = {
     "id": "EONET_001",
     "title": "Wildfire - Somewhere",
-    "categories": [{"id": 8, "title": "Wildfires"}],
+    "categories": [{"id": "wildfires", "title": "Wildfires"}],
     "geometry": [{"date": "2026-01-01T00:00:00Z", "type": "Point", "coordinates": [10.0, 20.0]}],
     "closed": None,
 }

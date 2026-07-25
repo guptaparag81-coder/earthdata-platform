@@ -16,9 +16,13 @@ class CleanedGeometryPoint(BaseModel):
 
 
 class CleanedCategory(BaseModel):
-    """A single validated category classification."""
+    """A single validated category classification.
 
-    id: int | None = None
+    `id` accepts both the legacy integer form and EONET's current string
+    slug form (e.g. `"wildfires"`); only `title` is used downstream.
+    """
+
+    id: int | str | None = None
     title: str
 
 

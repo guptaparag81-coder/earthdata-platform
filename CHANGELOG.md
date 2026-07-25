@@ -5,6 +5,19 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+
+- **NASA EONET ingestion failure**: `categories[].id` is now `int | str`
+  (was `int`-only) in both `EonetCategory` (`ingestion/schemas.py`) and
+  `CleanedCategory` (`processing/validation.py`). EONET's live API returns
+  string category slugs (e.g. `"wildfires"`, `"severeStorms"`) rather than
+  the small integers the schemas previously required, which made every
+  ingest fail Pydantic validation. `category.id` is never read downstream
+  (only `category.title` is used), so the fix is a pure type widening with
+  no behavior change; legacy integer ids continue to validate.
+
 ## [1.0.0] - 2026-07-25
 
 ### Added

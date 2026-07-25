@@ -21,7 +21,7 @@ EONET_EVENTS_URL = "https://eonet.gsfc.nasa.gov/api/v3/events"
 VALID_EVENT = {
     "id": "EONET_100",
     "title": "Wildfire - Integration Test",
-    "categories": [{"id": 8, "title": "Wildfires"}],
+    "categories": [{"id": "wildfires", "title": "Wildfires"}],
     "geometry": [
         {"date": "2026-01-01T00:00:00Z", "type": "Point", "coordinates": [10.0, 20.0]},
         {"date": "2026-01-02T00:00:00Z", "type": "Point", "coordinates": [11.0, 21.0]},
@@ -32,7 +32,7 @@ VALID_EVENT = {
 INVALID_EVENT = {
     "id": "EONET_101",
     "title": "Missing categories",
-    "categories": [{"id": 9, "title": "placeholder"}],
+    "categories": [{"id": "other", "title": "placeholder"}],
     "geometry": [{"date": "2026-01-01T00:00:00Z", "type": "Point", "coordinates": [999.0, 20.0]}],
     "closed": None,
 }

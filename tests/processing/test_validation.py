@@ -21,6 +21,15 @@ def test_cleaned_event_accepts_valid_payload() -> None:
     assert event.geometry[0].coordinates == [10.0, 20.0]
 
 
+def test_cleaned_event_accepts_string_category_id() -> None:
+    """EONET's live API now returns category ids as string slugs, e.g. "wildfires"."""
+    payload = {**VALID_PAYLOAD, "categories": [{"id": "wildfires", "title": "Wildfires"}]}
+
+    event = CleanedEvent.model_validate(payload)
+
+    assert event.categories[0].id == "wildfires"
+
+
 def test_cleaned_event_rejects_empty_categories() -> None:
     payload = {**VALID_PAYLOAD, "categories": []}
 

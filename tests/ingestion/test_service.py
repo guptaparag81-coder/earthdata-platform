@@ -12,9 +12,15 @@ from earthdata.ingestion.service import IngestionService
 EVENT_PAYLOAD = {
     "id": "EONET_001",
     "title": "Wildfire - Somewhere",
-    "categories": [{"id": 8, "title": "Wildfires"}],
+    "categories": [{"id": "wildfires", "title": "Wildfires"}],
     "geometry": [{"date": "2026-01-01T00:00:00Z", "type": "Point", "coordinates": [10.0, 20.0]}],
     "closed": None,
+}
+
+LEGACY_INT_CATEGORY_ID_PAYLOAD = {
+    **EVENT_PAYLOAD,
+    "id": "EONET_002",
+    "categories": [{"id": 8, "title": "Wildfires"}],
 }
 
 
@@ -40,6 +46,22 @@ async def test_ingest_events_stores_raw_records(raw_repository: _FakeRawReposito
     assert result[0].external_id == "EONET_001"
     assert isinstance(result[0].fetched_at, datetime)
     raw_repository.bulk_add.assert_awaited_once()
+
+
+async def test_ingest_events_accepts_legacy_integer_category_id(
+    raw_repository: _FakeRawRepository,
+) -> None:
+    client = AsyncMock()
+    client.fetch_events.return_value = {
+        "title": "EONET Events",
+        "events": [LEGACY_INT_CATEGORY_ID_PAYLOAD],
+    }
+
+    service = IngestionService(client=client, raw_repository=raw_repository)  # type: ignore[arg-type]
+    result = await service.ingest_events()
+
+    assert len(result) == 1
+    assert result[0].external_id == "EONET_002"
 
 
 async def test_ingest_events_returns_empty_list_when_no_events(

@@ -8,11 +8,16 @@ from pydantic import BaseModel, ConfigDict, Field
 
 
 class EonetCategory(BaseModel):
-    """A category classification attached to an EONET event."""
+    """A category classification attached to an EONET event.
+
+    EONET's `categories[].id` was historically a small integer but the live
+    API now returns a string slug (e.g. `"wildfires"`); both are accepted
+    since nothing downstream depends on the id's type.
+    """
 
     model_config = ConfigDict(extra="ignore")
 
-    id: int
+    id: int | str
     title: str
 
 
