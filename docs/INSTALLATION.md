@@ -11,8 +11,8 @@
 ## Option A — Docker (recommended)
 
 ```bash
-git clone https://github.com/OWNER/EarthData.git
-cd EarthData
+git clone https://github.com/guptaparag81-coder/earthdata-platform.git
+cd earthdata-platform
 cp .env.example .env
 docker compose up --build
 ```

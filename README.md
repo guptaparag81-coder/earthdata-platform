@@ -1,7 +1,7 @@
 # EarthData
 
-[![CI](https://github.com/OWNER/EarthData/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/EarthData/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/OWNER/EarthData/actions/workflows/ci.yml)
+[![CI](https://github.com/guptaparag81-coder/earthdata-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/guptaparag81-coder/earthdata-platform/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)](https://github.com/guptaparag81-coder/earthdata-platform/actions/workflows/ci.yml)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 

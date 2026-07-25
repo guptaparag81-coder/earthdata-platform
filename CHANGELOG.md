@@ -43,4 +43,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   server-computed `onupdate` columns (e.g. `updated_at`) are populated
   before the response is serialized.
 
-[1.0.0]: https://github.com/OWNER/EarthData/releases/tag/v1.0.0
+[1.0.0]: https://github.com/guptaparag81-coder/earthdata-platform/releases/tag/v1.0.0
